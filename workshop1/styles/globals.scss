@@ -10,3 +10,228 @@
 .col1 {
     background-color: aquamarine;
 }
+
+.HeaderBar {
+    top: 0px;
+    padding: 10px;
+    background-color: rgb(191, 211, 14);
+    display: flex;
+    justify-content: space-between;
+   // align-items: center;
+    position: fixed;
+    width: 100% ;
+    z-index: 99;
+   
+    .left {
+        width: 50%;
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 10px;
+        padding-bottom: 5px;
+        padding-top: 15px;
+
+       // display: inline;
+      //  position:absolute;
+    // justify-content: center;        
+ //   flex-wrap: nowrap;
+    
+    .logo {
+        border-radius: 4px;
+        background-color: black;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        margin-right: 10px;
+            
+    }
+     .titulo {
+            font-weight: bold;
+            font-size: 20px;
+            position: relative;
+            
+
+            p {
+                margin-bottom: 0px;
+            }
+            
+        }
+    }
+    .right {
+        position: relative;
+    }
+
+    .ProfileMenu {
+        width: 40px;
+        height: 40px;
+        background-color: rgb(29, 29, 83);
+        border-radius: 75%;
+        cursor: pointer;
+    }
+
+    .MenuOptions {
+        position: absolute;
+        width: 200px;
+        right: 0px;
+        text-align: right;
+        background-color: rgb(131, 143, 66);
+        margin-top: 10px;
+        max-height: 0px;
+        overflow: hidden;
+        transition: 0.2s all ease;
+        opacity: 0;
+        .option {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            transition: all 0.2s ease ;
+            height: 100%;
+            
+            
+            &:hover {
+                color: white;
+                cursor: pointer;
+                background-color: grey;
+
+            }
+        }
+        &.active {
+            max-height: 200px;
+            opacity: 1;
+        }
+    }
+}
+
+.SectionPinterest {
+    overflow-x: hidden;
+ .full-height {
+    min-height: 100vh;
+    @media screen  and  (max-width: 768px) {
+        .relative { height: 100%; }
+        .centered { height: fit-content;} 
+
+    }
+        
+    }
+        
+    }
+ 
+    .containter {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+   
+    
+    .relative     {
+        position: relative; 
+
+               
+    }
+
+    .centered {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        @media screen and (max-width: 768px) {
+            justify-content: center !important;
+            
+        }
+
+    .reversed {
+        flex-direction: row-reverse;
+    }
+    }
+    .info-box {
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .description {
+            margin-bottom: 10px;
+        }
+        .cta {
+            padding: 4px 10px 4px 10px;
+            border-radius: 4px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+            width: fit-content;
+            margin: auto;
+
+            &:hover {
+                background-color: gray;
+                color:black;
+            }
+        }
+    
+  
+    }
+    .img-box {
+        width: 120px;
+        height: 120px;
+        background-color: violet;
+        border-radius: 30px;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+        margin: auto;
+
+
+    }
+    .img-1 {
+        top: -200px;
+        right: -250px;
+        background-color: rgb(81, 168, 81) ;
+}
+    .img-2 {
+        top: -250px;
+        right: 0px;
+        background-color: rgb(160, 77, 160);
+    
+}
+    .img-3 {
+        top: 100px;
+        right: -250px;
+        background-color: rgb(214, 146, 20);
+    
+}
+    .img-4 {
+    
+}
+
+
+.sarasa {
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    position: absolute;
+
+    .sarasita {
+        width: 30px;
+        height: 30px;
+        background-color: red ;
+        border-radius: 50%;
+        position: relative;
+        top: 270px;
+        bottom: 270px;
+        left: 270px; 
+        right: 270px;
+    }
+}
+
+.buttonLikes {
+    background-color: gray;
+    width: 80px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    align-items: end;
+    position: relative;
+    color: black; 
+    
+}

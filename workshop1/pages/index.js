@@ -1,8 +1,5 @@
 import Head from 'next/head'
 
-
-
-
 export default function Home() {
   return (
     <>
@@ -35,13 +32,7 @@ export default function Home() {
       3 of 3
     </div>
   </div>
-</div>
-            
-       
-
-        
-      
-            
+</div>  
       
       </main>
     </>
