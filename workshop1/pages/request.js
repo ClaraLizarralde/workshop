@@ -26,7 +26,7 @@ export default function Request() {
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
             </Head>
             <main className="">
-              <button onClick={() => grabInfo ()} >traer informacion </button>
+              <button onClick={() => grabInfo ()} >Abrir Pokedex! </button>
               { info && (
                  
                     <div className='container pokedex'>
@@ -35,7 +35,7 @@ export default function Request() {
                                 <div><p>Count: {info.count}</p> </div>
                              {info.results.map((pokemon, index) => {
                                 return (
-                                 <div key={index} onClick={() => grabPokemonInfo(pokemon.url)}>
+                                 <div className='pokemon-list-item' key={index} onClick={() => grabPokemonInfo(pokemon.url)}>
                                 <p className='mb-0'>{pokemon.name}</p> 
                             </div> 
                               )
@@ -45,7 +45,7 @@ export default function Request() {
                                  <div className='col-6'>
                                     <p className='pokemonName'>{pokemonInfo.name}</p>
                                     <img  className='fotoPokemon' src= {pokemonInfo.sprites.front_default} alt='{pokemonInfo.Name} + " foto"'/> 
-                                    <button className='boton-habilidades' onClick={() => letPokemonAbilities(pokemon.abilities)}><p>habilidades</p></button>
+                                    <button className='boton-habilidades' onClick={() => letPokemonAbilities(pokemon.abilities)}><p>habilidades {abilities}</p></button>
                                     </div>
                                  ) } 
  
@@ -95,6 +95,6 @@ export const getPokemonAbilities = (abilities) => {
         }) .then(resolve).catch(reject))
     }
     )
-}
+} 
 
 
