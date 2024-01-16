@@ -4,7 +4,7 @@ import React from 'react'
 export default function Request() {
     const [info, setInfo] = React.useState (null)
     const [pokemonInfo, setPokemonInfo] = React.useState (null)
-    const [abilities, setPokemonAbilities ] = React.useState (null)
+    const [habilidades, setHabilidades] = React.useState(null);
 
     const grabInfo = () => {
         getPokemons().then(setInfo)
@@ -13,10 +13,11 @@ export default function Request() {
         getPokemonInfo(url).then(setPokemonInfo)
     }
 
-    const letPokemonAbilities = (abilities) => {
-        getPokemonAbilities(abilities).then(setPokemonAbilities)
+    const grabPokemonHabilidades = () => {
+        obtenerHabilidades().then(setHabilidades)
     }
-    return (
+
+       return (
         <>
             <Head>
                 <title>Workshop 5</title>
@@ -31,21 +32,33 @@ export default function Request() {
                  
                     <div className='container pokedex'>
                         <div className='row'>
-                            <div className='col-6 listOfPokemon'>
+                            <div className='col-4 listOfPokemon'>
                                 <div><p>Count: {info.count}</p> </div>
                              {info.results.map((pokemon, index) => {
                                 return (
                                  <div className='pokemon-list-item' key={index} onClick={() => grabPokemonInfo(pokemon.url)}>
-                                <p className='mb-0'>{pokemon.name}</p> 
+                                <div><p className='mb-0'>{pokemon.name}</p>
+                                 
+                                </div>
                             </div> 
                               )
                               }) }
                                 </div>
                                     {pokemonInfo && ( 
-                                 <div className='col-6'>
+                                 <div className='col-8'>
                                     <p className='pokemonName'>{pokemonInfo.name}</p>
-                                    <img  className='fotoPokemon' src= {pokemonInfo.sprites.front_default} alt='{pokemonInfo.Name} + " foto"'/> 
-                                    <button className='boton-habilidades' onClick={() => letPokemonAbilities(pokemon.abilities)}><p>habilidades {abilities}</p></button>
+                                    <img  className='fotoPokemon' src= {pokemonInfo.sprites.other.dream_world.front_default} alt='{pokemonInfo.Name} + " foto"'/> 
+                                  
+                                 
+                                    <button className='boton-habilidades' onClick={() => grabPokemonHabilidades()}><p> habilidades </p></button>
+                                    { habilidades && (
+                                        <div>
+                                           {habilidades.results.map((habilidad, index) => (
+                                            <li key={index} className='lista-habilidades'>{habilidad.name}</li>
+                                            
+                                           )) }</div>
+                                    )}
+                                    
                                     </div>
                                  ) } 
  
@@ -85,16 +98,25 @@ export const getPokemonInfo = (url) => {
     
         } ) .then(resolve).catch(reject)
         })
+        const pokemonData = response.json()
+        const pokemonName = pokemonData.name;
+        const abilities = pokemonData.abilities;
+        const stats = pokemonData.stats;
+        const types = pokemonData.types;
+
+        console.log('Nombre del Pokémon:', pokemonName);
+        console.log('Habilidades:', abilities);
+        console.log('Estadísticas:', stats);
+        console.log('Tipos:', types);
 
 }
 
-export const getPokemonAbilities = (abilities) => {
-    return new Promise ((resolve, reject) => {
-        fetch (abilities).then((response => {
-            return response.json()
-        }) .then(resolve).catch(reject))
-    }
-    )
-} 
+export const obtenerHabilidades = () => {
+    return new Promise((resolve, reject) => {
+        fetch("https://pokeapi.co/api/v2/ability/").then((response) => {
+                return response.json();
+                }) .then(resolve) .catch(reject)
+    });
+};
 
 

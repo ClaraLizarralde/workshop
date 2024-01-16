@@ -237,10 +237,13 @@
 }
 
 .pokedex {
-
+    display: flex;
     background-color: black;
+    justify-content: space-around;
 
     .listOfPokemon {
+        padding: 20px;
+        text-align: start;
         height: 90vh;
         overflow: auto;
         color: bisque;
@@ -252,15 +255,16 @@
                 color: rgb(85, 56, 56);
             }
 
-    
-    }
-} 
+                            }
+                    } 
 .pokemonName {
     color: white;
     text-align: center;
     font-size: 30px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
+
 .fotoPokemon {
     width: 60%;
     
@@ -271,6 +275,11 @@
     &:hover { 
         background-color: gray;
          font-weight: bold; }
+
+}
+
+.lista-habilidades {
+    color: white;
 
 }
 
