@@ -20,17 +20,19 @@ export default function Request() {
        return (
         <>
             <Head>
-                <title>Workshop 5</title>
+                <title>Pokedex! w5</title>
                 <meta name="description" content="Workshop" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
             </Head>
             <main className="">
+                
               <button onClick={() => grabInfo ()} >Abrir Pokedex! </button>
               { info && (
+                  <div className='container pokedex'>
+                 <image className='logopokemon' src="/public/pokedexlogo.svg" ></image> 
                  
-                    <div className='container pokedex'>
                         <div className='row'>
                             <div className='col-4 listOfPokemon'>
                                 <div><p>Count: {info.count}</p> </div>
